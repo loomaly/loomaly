@@ -25,5 +25,5 @@ Use this when the user asks how their site is doing, what Loomaly found, or want
 
 ## Accuracy
 
-- Only report what the tools return. Don't estimate traffic or rankings: Loomaly doesn't measure them.
+- Only report what the tools return. Don't estimate traffic or rankings; the only search numbers Loomaly has are Search Console's, for the focus page (`focus_page`, see the `weekly-loop` skill).
 - `affectedPages` counts pages Loomaly checked, not every page on the web.

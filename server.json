@@ -3,7 +3,7 @@
   "name": "com.loomaly/loomaly",
   "title": "Loomaly",
   "description": "SEO audit of every page: what to fix first, a fix prompt for your framework, and a re-check.",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "websiteUrl": "https://loomaly.com/docs/mcp",
   "repository": {
     "url": "https://github.com/loomaly/loomaly",
