@@ -1,0 +1,18 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "com.loomaly/loomaly",
+  "title": "Loomaly",
+  "description": "SEO audit of every page: what to fix first, a fix prompt for your framework, and a re-check.",
+  "version": "1.0.0",
+  "websiteUrl": "https://loomaly.com/docs/mcp",
+  "repository": {
+    "url": "https://github.com/dengzhaofun/loomaly",
+    "source": "github"
+  },
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://loomaly.com/mcp"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "name": "loomaly",
+  "version": "1.0.0",
+  "description": "Fix your site's SEO from Cursor: what to fix first on every page, a fix prompt for your framework, and a re-check once it's live.",
+  "author": {
+    "name": "Loomaly",
+    "email": "support@loomaly.com"
+  },
+  "homepage": "https://loomaly.com",
+  "keywords": [
+    "seo",
+    "site-audit",
+    "technical-seo",
+    "core-web-vitals",
+    "structured-data",
+    "ai-crawlers",
+    "mcp"
+  ],
+  "skills": "skills",
+  "mcpServers": "mcp.json",
+  "logo": "assets/logo.svg"
+}

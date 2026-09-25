@@ -1,0 +1,14 @@
+{
+  "name": "loomaly",
+  "version": "1.0.0",
+  "description": "Fix your site's SEO from Codex: what to fix first on every page, a fix prompt for your framework, and a re-check once it's live.",
+  "author": { "name": "Loomaly", "url": "https://loomaly.com" },
+  "homepage": "https://loomaly.com",
+  "keywords": ["seo", "site-audit", "technical-seo", "mcp"],
+  "skills": "./skills/",
+  "mcpServers": { "loomaly": { "url": "https://loomaly.com/mcp" } },
+  "interface": {
+    "displayName": "Loomaly",
+    "shortDescription": "What to fix first on every page of your site, fixed in your repo and re-checked once it's live."
+  }
+}

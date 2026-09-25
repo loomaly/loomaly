@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="Loomaly">
+  <title>Loomaly</title>
+  <!--
+    Pulse mark — three ascending bars + upward arrow cap.
+    Light/transparent background variant (favicon, UI use).
+    Primary color: #0B7A6E (teal).
+  -->
+
+  <!-- Bar 1 (short, 38% opacity) -->
+  <rect x="137" y="344" width="90" height="130" rx="18" fill="#0B7A6E" fill-opacity="0.38"/>
+  <!-- Bar 2 (mid, 69% opacity) -->
+  <rect x="261" y="279" width="90" height="195" rx="18" fill="#0B7A6E" fill-opacity="0.69"/>
+  <!-- Bar 3 (tall, full) -->
+  <rect x="385" y="215" width="90" height="259" rx="18" fill="#0B7A6E"/>
+
+  <!-- Arrow cap above bar 3 -->
+  <polyline
+    points="340,170 430,88 520,170"
+    fill="none"
+    stroke="#0B7A6E"
+    stroke-width="46"
+    stroke-linecap="round"
+    stroke-linejoin="round"/>
+</svg>

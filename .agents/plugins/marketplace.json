@@ -1,0 +1,20 @@
+{
+  "name": "loomaly",
+  "interface": {
+    "displayName": "Loomaly"
+  },
+  "plugins": [
+    {
+      "name": "loomaly",
+      "source": {
+        "source": "local",
+        "path": "./loomaly"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Developer Tools"
+    }
+  ]
+}

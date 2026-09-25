@@ -1,0 +1,12 @@
+{
+  "name": "loomaly",
+  "owner": { "name": "Loomaly", "email": "support@loomaly.com" },
+  "metadata": { "description": "Loomaly's Cursor plugin marketplace." },
+  "plugins": [
+    {
+      "name": "loomaly",
+      "source": "loomaly",
+      "description": "What to fix first on every page of your site, fixed in your repo and re-checked once it's live."
+    }
+  ]
+}

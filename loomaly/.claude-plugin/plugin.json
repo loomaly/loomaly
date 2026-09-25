@@ -1,0 +1,12 @@
+{
+  "name": "loomaly",
+  "displayName": "Loomaly",
+  "version": "1.0.0",
+  "description": "Fix your site's SEO from your coding assistant: what to fix first on every page, a fix prompt for your framework, and a re-check once it's live.",
+  "author": { "name": "Loomaly", "url": "https://loomaly.com", "email": "support@loomaly.com" },
+  "homepage": "https://loomaly.com",
+  "keywords": ["seo", "site-audit", "technical-seo", "core-web-vitals", "structured-data", "ai-crawlers", "mcp"],
+  "mcpServers": {
+    "loomaly": { "type": "http", "url": "https://loomaly.com/mcp" }
+  }
+}
