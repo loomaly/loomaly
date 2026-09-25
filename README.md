@@ -17,7 +17,7 @@ You need a Loomaly account; the free plan covers one site. The first time a tool
 ### Claude Code
 
 ```
-/plugin marketplace add dengzhaofun/loomaly
+/plugin marketplace add loomaly/loomaly
 /plugin install loomaly@loomaly
 ```
 
@@ -37,7 +37,7 @@ Install **Loomaly** from the Cursor Marketplace, or add the server to `~/.cursor
 
 ### Codex
 
-Open **Plugins** in the sidebar, then **More → Add more**, and enter `dengzhaofun/loomaly` as the marketplace source.
+Open **Plugins** in the sidebar, then **More → Add more**, and enter `loomaly/loomaly` as the marketplace source.
 
 ## Try it
 
