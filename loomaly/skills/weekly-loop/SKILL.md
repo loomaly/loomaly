@@ -13,12 +13,14 @@ Rankings that don't convert are worth nothing, and a sitewide audit gives no ide
 - `focus_page` (`siteId`): the owner's brief (what the site sells, to whom, what counts as a conversion), the focus page's Search Console numbers (last 28 days vs the 28 before), its open issues, a conversion checkup (the page read against the brief), and the change log, each change with a `verdict`. With no focus page it returns `candidates` instead.
 - `fix_prompt` (`findingId`): instructions for one open issue on the page.
 - `log_change` (`siteId`, `summary`, `shippedOn`, `ref`, optional `conversionsBefore` / `conversionsAfter`): record a change once it is live.
+- `set_focus_page` (`siteId`, `page`) and `set_brief` (`siteId`, `offer`, `customer`, `conversion`): save the owner's choice of page and their brief.
 - `mark_fixed` / `verify`: close an issue the change fixed.
 
 ## Steps
 
 1. `sites_list`, then `focus_page`.
-   - No focus page: suggest one of the `candidates` (pages already seen in search, ranking 3–20) that looks like it should convert. The owner sets it in the dashboard's Overview. Stop there.
+   - No focus page: suggest one of the `candidates` (pages already seen in search, ranking 3–20) that looks like it should convert; without Search Console there are none, so ask which page matters most (often pricing or the main product page). Once the owner picks, `set_focus_page`.
+   - `checkup.state` is `needs_brief`: ask the owner what the site sells, to whom, and what counts as a conversion, and `set_brief` with their words.
 2. Report the week, short:
    - Search numbers for the page, and whether they moved beyond normal noise. Say plainly when they did not.
    - Every change whose verdict arrived. Conversions decide: `miss` means the page climbed but did not convert better; `win` means more conversions, even with flat rankings. `too_little` (and `lowTraffic`) means the page gets too few clicks for search to show anything: say so, and judge the page by the checkup and its index status until traffic grows. `search_up` only says search improved, because no conversions were given — ask the owner for them (before and after windows are in `measure.windows`) and record them with `log_change`'s fields on a new entry or in the dashboard.
