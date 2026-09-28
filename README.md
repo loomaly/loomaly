@@ -48,6 +48,10 @@ codex mcp add loomaly --url https://loomaly.com/mcp
 
 Codex opens your browser to sign in straight away; if you close it, run `codex mcp login loomaly`.
 
+### Claude on the web, desktop or phone
+
+Open [Loomaly in the Claude connector directory](https://claude.ai/directory/loomaly) and click **Connect**. No terminal needed. Claude there reads your issues and explains how to fix them for however your site is built; it can't change your code, so use one of the coding agents above to have fixes made for you.
+
 ## Try it
 
 From your site's repository, ask your assistant:
@@ -59,6 +63,7 @@ From your site's repository, ask your assistant:
 ## Links
 
 - Docs: https://loomaly.com/docs/mcp
+- Claude connector directory: https://claude.ai/directory/loomaly
 - Free check of any site, no sign-up: https://loomaly.com
 - Privacy: https://loomaly.com/privacy
 
