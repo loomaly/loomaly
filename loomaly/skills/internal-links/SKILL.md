@@ -11,7 +11,7 @@ Use this when the user wants to improve internal linking or asks about Loomaly's
 
 - `link_suggestions` (`siteId`, `limit`): each has `id`, `fromUrl`, `toUrl`, `sentence`, `anchor` and `role` (`definition`, `comparison`, `next_step` or `tangential`).
 - `decide_link` (`suggestionId`, `decision`: `accepted` or `dismissed`).
-- `sites_list` or `get_started` for the site ID. If the result has `needsSite`, the account has no site yet: find the domain in the repository (or use one the user already gave you) and call `add_site`, then wait until a scan finishes. Link suggestions appear only after a scan. Don't ask for the domain when you can see it.
+- `sites_list` or `get_started` for the site ID. If the result has `needsSite`, the account has no site yet: find the domain in the repository (or use one the user already gave you) and call `add_site`, then wait until a scan finishes. Link suggestions appear only after a scan. Don't ask for the domain when you can see it. A free plan shows a fixed 3 suggestions (the strongest, including ones already dismissed). Dismissing one does not reveal the next; `lockedCount` is the rest. Suggestions stay in one language.
 
 ## Steps
 

@@ -12,7 +12,7 @@ Use this when the user asks how their site is doing, what Loomaly found, or want
 - `get_started`: call this first. An account with no site returns `needsSite`.
 - `sites_list`: sites with `id`, `domain`, `healthScore`, `lastScanAt`, `openIssues` and `scan.phase`.
 - `fix_first` (`siteId`, `limit`): open problems in fix-first order, with `ruleTitle`, `severity`, `affectedPages`, `reason` and `message`.
-- `findings_list` (`siteId`, `severity`, `ruleId`): individual issues, when a problem needs an example page.
+- `findings_list` (`siteId`, `severity`, `ruleId`, `cursor`): individual issues, when a problem needs an example page. Read `total` and follow `nextCursor` until it is null.
 
 ## Steps
 
