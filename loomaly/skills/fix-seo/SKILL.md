@@ -9,8 +9,9 @@ Use this when the user wants to fix their site's SEO, work through Loomaly issue
 
 ## Tools (Loomaly MCP)
 
-- `sites_list`: the sites this account can see, with `id`, `domain`, `healthScore` and `scan.phase`. Every other tool needs a site `id`.
-- `add_site` (`domain`, optional `path`, `language`): adds a site and starts its first scan, when the account has none for this repository.
+- `get_started` (optional `domain`): call this first. If the account has no site and you pass `domain`, it adds the site and starts the first scan. If `needsSite` is true and there is no domain yet, find one and call `add_site`.
+- `sites_list`: the sites this account can see, with `id`, `domain`, `healthScore` and `scan.phase`. Every other tool needs a site `id`. An empty account returns `needsSite`.
+- `add_site` (`domain`, optional `path`, `language`): adds a site and starts its first scan. Returns `poll` so you can watch `sites_list` until `scan.phase` is `done` or `failed`.
 - `fix_first` (`siteId`, `limit`): open problems in the order Loomaly recommends. One entry per rule by default, with `affectedPages`, `templates`, `sampleUrl`, `sampleFindingId`, `lastSeenAt` and `reason`. A rule on many pages is usually one change in a shared layout or template.
 - `findings_list` (`siteId`, `severity`, `state`, `ruleId`, `pathTemplate`, `url`): individual issues with IDs, for `fix_prompt` and `verify`.
 - `fix_prompt` (`findingId`): the rule, the evidence and `devPrompt`, an instruction written for the site's framework. `template` says how many pages of the same template have the problem.
@@ -22,7 +23,7 @@ If the tools aren't available, tell the user to connect Loomaly (`claude mcp add
 
 ## Steps
 
-1. `sites_list`. If more than one site matches the repository, ask which one; don't guess. If none does, ask the user for the domain and `add_site`, then tell them the first scan takes 5–20 minutes. While `scan.phase` is `finding_pages` or `checking_pages`, the queue is still filling: say the scan is running, not that the site is clean.
+1. `get_started`. If `needsSite` is true, find the domain in this repository before asking the user: `package.json` `homepage`, the README, a canonical URL, the production URL in config, or a URL the user already gave you. If `suggestedDomain` is set, use that. Call `add_site` (or `get_started` again with `domain`) in this turn. Only ask when you cannot find a domain. The call starts the first scan. Poll `sites_list` until `scan.phase` is `done` or `failed` (5–20 minutes). While it is `finding_pages` or `checking_pages`, say the scan is running, not that the site is clean. If more than one site matches the repository, ask which one; don't guess.
 2. `fix_first` with `limit: 5`. Tell the user the top problem in one sentence: what it is, how many pages, and `reason`. Say what you'll change before you change it.
 3. `fix_prompt` with the entry's `sampleFindingId`. If `lastSeenAt` is older than the last deploy, check the live page first: it may already be fixed. Read `evidence` before the prompt: fix what the evidence shows, not what the rule's name suggests.
 4. Find where the problem comes from in this repository. Prefer the shared layout, template or component over editing pages one by one: `affectedPages` tells you whether it's a template-wide fix.
