@@ -62,7 +62,7 @@ From your site's repository, ask your assistant:
 
 ## Pricing
 
-A new account starts on the **Free** plan ($0, no card): 1 site and 50 in-depth pages a month. Paid plans are Starter **$29/month** (3 sites, 1,000 pages), Pro **$79/month** (10 sites, 10,000 pages) and Agency **$199/month** (50 sites, 50,000 pages, white-label PDF reports). Finding pages, rule checks and AI judgment are unlimited on every plan. Details: https://loomaly.com/docs/plans
+A new account starts on the **Free** plan ($0, no card): 1 site and 50 in-depth pages a month. Paid plans are Starter **$29/month** (3 sites, 1,000 pages), Pro **$79/month** (10 sites, 10,000 pages) and Agency **$199/month** (50 sites, 50,000 pages, white-label PDF reports). Finding pages and rule checks are unlimited on every plan. AI judgment covers the top 20 pages of each scan on Free, and every page on a paid plan. Details: https://loomaly.com/docs/plans
 
 ## Links
 

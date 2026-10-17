@@ -14,7 +14,7 @@ Rankings that don't convert are worth nothing, and a sitewide audit gives no ide
 - `fix_prompt` (`findingId`): instructions for one open issue on the page.
 - `log_change` (`siteId`, `summary`, `shippedOn`, `ref`, optional `conversionsBefore` / `conversionsAfter`): record a change once it is live.
 - `set_focus_page` (`siteId`, `page`) and `set_brief` (`siteId`, `offer`, `customer`, `conversion`): save the owner's choice of page and their brief.
-- `mark_fixed` / `verify`: close an issue the change fixed.
+- `mark_fixed` (`siteId` plus `findingId` or `ruleId` and `pathTemplate`, `ref`) records the claim and does not use a fix check. `verify` re-checks the live page after deploy and is what uses a fix check.
 
 ## Steps
 
