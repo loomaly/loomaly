@@ -11,7 +11,7 @@ This repository is the plugin: Loomaly's MCP server (`https://loomaly.com/mcp`) 
 | `internal-links` | Goes through the internal links Loomaly suggests with you, adds the approved ones to the source content, and records each decision. |
 | `weekly-loop` | Runs the weekly loop on one page that should make money: judges the last change by search and conversions, and proposes one next change with evidence. |
 
-The first time a tool runs, your assistant opens a browser window so you can sign in or create a free account; the free plan covers one site.
+The first time a tool runs, your assistant opens a browser window so you can sign in or create a free account; the free plan covers one site. If the account has no site yet, the assistant should find this repository's domain and add it, which starts the first scan. You don't have to open the dashboard first.
 
 ## Install
 
@@ -59,6 +59,10 @@ From your site's repository, ask your assistant:
 - "Use Loomaly to check example.com. Fix the 3 problems it ranks first in this repo, and open a PR for me to review."
 - "What should I fix first on my site's SEO?"
 - "Explain my site's SEO health score."
+
+## Pricing
+
+A new account starts on the **Free** plan ($0, no card): 1 site and 50 in-depth pages a month. Paid plans are Starter **$29/month** (3 sites, 1,000 pages), Pro **$79/month** (10 sites, 10,000 pages) and Agency **$199/month** (50 sites, 50,000 pages, white-label PDF reports). Finding pages, rule checks and AI judgment are unlimited on every plan. Details: https://loomaly.com/docs/plans
 
 ## Links
 
