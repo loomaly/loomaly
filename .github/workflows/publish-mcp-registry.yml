@@ -1,0 +1,66 @@
+name: Publish to MCP Registry
+
+on:
+  push:
+    branches: [main]
+    paths: [server.json]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: mcp-registry-publish
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    env:
+      MCP_PUBLISHER_VERSION: v1.8.1
+      REGISTRY: https://registry.modelcontextprotocol.io
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Read server.json
+        id: meta
+        run: |
+          NAME=$(jq -r .name server.json)
+          VERSION=$(jq -r .version server.json)
+          echo "name=$NAME" >> "$GITHUB_OUTPUT"
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+          echo "server.json: $NAME@$VERSION"
+
+      - name: Skip if this version is already published
+        id: check
+        run: |
+          ENC=$(jq -rn --arg n "${{ steps.meta.outputs.name }}" '$n|@uri')
+          CODE=$(curl -s -o /dev/null -w '%{http_code}' "$REGISTRY/v0/servers/$ENC/versions/${{ steps.meta.outputs.version }}")
+          if [ "$CODE" = "200" ]; then
+            echo "Version ${{ steps.meta.outputs.version }} is already in the registry; nothing to do."
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "skip=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Install mcp-publisher
+        if: steps.check.outputs.skip != 'true'
+        run: |
+          curl -fsSL "https://github.com/modelcontextprotocol/registry/releases/download/${MCP_PUBLISHER_VERSION}/mcp-publisher_linux_amd64.tar.gz" | tar xz mcp-publisher
+          ./mcp-publisher --version || true
+
+      - name: Log in (DNS auth, loomaly.com)
+        if: steps.check.outputs.skip != 'true'
+        env:
+          MCP_REGISTRY_PRIVATE_KEY: ${{ secrets.MCP_REGISTRY_PRIVATE_KEY }}
+        run: ./mcp-publisher login dns --domain loomaly.com --private-key "$MCP_REGISTRY_PRIVATE_KEY"
+
+      - name: Publish
+        if: steps.check.outputs.skip != 'true'
+        run: ./mcp-publisher publish
+
+      - name: Confirm
+        if: steps.check.outputs.skip != 'true'
+        run: |
+          ENC=$(jq -rn --arg n "${{ steps.meta.outputs.name }}" '$n|@uri')
+          curl -fsS "$REGISTRY/v0/servers/$ENC/versions/latest" | jq '{name: .server.name, version: .server.version, isLatest: ._meta["io.modelcontextprotocol.registry/official"].isLatest}'
