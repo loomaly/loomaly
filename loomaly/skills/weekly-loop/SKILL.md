@@ -20,9 +20,10 @@ Rankings that don't convert are worth nothing, and a sitewide audit gives no ide
 
 ## Steps
 
-1. `sites_list`, then `focus_page`.
+1. `sites_list`, then `fix_first`, then `focus_page`.
+   - If `fix_first` has `needsBrief`, or `checkup.state` is `needs_brief`: ask the owner once about the audience, the goal and the keywords, and what the site sells, to whom, and what counts as a conversion. `set_brief` with their words. Do not invent the brief. Ask which search phrase the focus page should rank for, and save it with `set_focus_page`'s `keyword`.
+   - If `weeklyPlan` leads with a foundation (sitemap, robots, Search Console, homepage, server rendering), that comes before the focus-page change. A sitemap fix generates the file from the route or content source. After it is verified, `submit_sitemap` when Search Console is connected. If `gscSetup` is present, call `gsc_verify_site`: authorize Google in Loomaly, add `metaTag` to the homepage head in server-rendered HTML, leave the tag in place, and after deploy call `gsc_verify_site` with `deployed` true. The owner does not open Search Console.
    - No focus page: suggest one of the `candidates` (pages already seen in search, ranking 3–20) that looks like it should convert; without Search Console there are none, so ask which page matters most (often pricing or the main product page). Once the owner picks, `set_focus_page`.
-   - `checkup.state` is `needs_brief`: ask the owner what the site sells, to whom, and what counts as a conversion, and `set_brief` with their words. Ask which search phrase the focus page should rank for, and save it with `set_focus_page`'s `keyword`.
 2. Report the week, short:
    - Search numbers for the page, and whether they moved beyond normal noise. Say plainly when they did not.
    - Every change whose verdict arrived. Conversions decide: `miss` means the page climbed but did not convert better; `win` means more conversions, even with flat rankings. `too_little` (and `lowTraffic`) means the page gets too few clicks for search to show anything: say so, and judge the page by the checkup and its index status until traffic grows. `search_up` only says search improved, because no conversions were given — ask the owner for them (before and after windows are in `measure.windows`) and record them with `log_change`'s fields on a new entry or in the dashboard.
@@ -32,7 +33,7 @@ Rankings that don't convert are worth nothing, and a sitewide audit gives no ide
    - First choice: a `fail` item in `checkup` (the page does not say what it offers, has no proof, no step towards the conversion…). These cost conversions directly.
    - Then the worst open issue on the page (`openFindings`), using `fix_prompt`.
    - Leave a page that is doing well alone unless there is a strong reason.
-6. Wait for the owner's yes before drafting. When the change ships, `log_change` with the day it went live and the PR, and `mark_fixed` any issue it closed (the owner can also do this in the dashboard; a fix claimed on the focus page is logged automatically).
+6. Wait for the owner's yes before drafting. When the change ships, `log_change` with the day it went live and the PR, and `mark_fixed` any issue it closed (the owner can also do this in the dashboard). `mark_fixed` writes a change-log row for that page so the 14 days before can be compared with the 14 after. `verify`, and confirming the fix in the dashboard, write the same row if it is not there yet. This happens on every page, not only the focus page.
 
 ## Accuracy
 
