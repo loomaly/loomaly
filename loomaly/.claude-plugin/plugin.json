@@ -1,17 +1,32 @@
 {
   "name": "loomaly",
   "displayName": "Loomaly",
-  "version": "1.2.2",
+  "version": "2.1.0",
   "description": "Fix your site's SEO from your coding assistant: what to fix first on every page, a fix prompt for your framework, and a re-check once it's live.",
-  "author": { "name": "Loomaly", "url": "https://loomaly.com", "email": "support@loomaly.com" },
+  "author": {
+    "name": "Loomaly",
+    "url": "https://loomaly.com",
+    "email": "support@loomaly.com"
+  },
   "homepage": "https://loomaly.com",
   "privacyPolicyUrl": "https://loomaly.com/privacy",
   "termsOfServiceUrl": "https://loomaly.com/terms",
   "supportUrl": "https://github.com/loomaly/loomaly/issues",
   "documentationUrl": "https://loomaly.com/docs/mcp",
   "repository": "https://github.com/loomaly/loomaly",
-  "keywords": ["seo", "site-audit", "technical-seo", "core-web-vitals", "structured-data", "ai-crawlers", "mcp"],
+  "keywords": [
+    "seo",
+    "site-audit",
+    "technical-seo",
+    "core-web-vitals",
+    "structured-data",
+    "ai-crawlers",
+    "mcp"
+  ],
   "mcpServers": {
-    "loomaly": { "type": "http", "url": "https://loomaly.com/mcp" }
+    "loomaly": {
+      "type": "http",
+      "url": "https://loomaly.com/mcp"
+    }
   }
 }
