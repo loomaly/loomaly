@@ -2,7 +2,7 @@
 
 [Loomaly](https://loomaly.com) is one MCP for all of your SEO: rankings, AI search, fixes and reports. Fixed in your code, proven in your numbers. Your assistant gets the problem Loomaly ranks first with evidence and steps for your framework. A coding agent (Claude Code, Codex or Cursor) makes the change in your repo for you to review, or the assistant sends it to a developer, and Loomaly re-checks the live page once it ships. Loomaly never changes your site itself.
 
-This repository is the plugin: Loomaly's MCP server (`https://loomaly.com/mcp`, version **2.1.1**, twelve tools) plus three skills.
+This repository is the plugin: Loomaly's MCP server (`https://loomaly.com/mcp`, version **2.2.0**, twelve tools) plus three skills.
 
 | Skill | Who | What it does |
 | --- | --- | --- |
